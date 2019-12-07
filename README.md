@@ -3,7 +3,7 @@
 This litte program allows you to toggle your Razer Chrome Visualizer by pressing a Key.
 
 ## Features
-- Toggling your Razer CHroma Visualizer with only one button on or off
+- Toggling your Razer Chroma Visualizer with only one button on or off
 - The Program will be absolutely invisible while execution
 - No performance loss
 - No background tasks
