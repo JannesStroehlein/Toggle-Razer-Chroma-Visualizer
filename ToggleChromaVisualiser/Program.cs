@@ -1,22 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.IO;
+using System.Diagnostics;
+using System.Windows;
 
 namespace ToggleChromaVisualiser
 {
-    static class Program
+    class Program
     {
-        /// <summary>
-        /// Der Haupteinstiegspunkt für die Anwendung.
-        /// </summary>
-        [STAThread]
-        static void Main()
+        static string ChromaVisualizerExec = @"C:\Program Files (x86)\Razer\Synapse3\AudioVisualizer\ChromaVisualizer.exe";
+        static void Main(string[] args)
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            if (!File.Exists(ChromaVisualizerExec))
+                MessageBox.Show("The Razer Chroma Visualizer executable cannot be found.");
+            else
+            {
+                bool isrunning = false;
+
+                Process[] allprocesses = Process.GetProcesses();
+                for (int i = 0; i < allprocesses.Length; i++)
+                {
+                    if (allprocesses[i].ProcessName.Contains("ChromaVisualizer"))
+                    {
+                        isrunning = true;
+                        allprocesses[i].Kill();
+                        break;
+                    }
+                }
+                if (isrunning == false)
+                {
+                    Process startit = new Process();
+                    startit.StartInfo.FileName = ChromaVisualizerExec;
+                    startit.Start();
+                }
+            }
         }
     }
 }
