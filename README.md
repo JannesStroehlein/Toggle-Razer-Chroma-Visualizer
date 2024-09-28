@@ -16,7 +16,7 @@ This litte program allows you to toggle your Razer Chrome Visualizer by pressing
 ## Setup
 The setup of the program can be done in two different ways
 ### Method One:
-1. Download the release of the program
+1. Download the [latest release](https://github.com/JannesStroehlein/Toggle-Razer-Chroma-Visualizer/releases/latest) of the program
 2. Place the .exe file in any directory
 3. Go into Razer Synapses keyboard options
 4. Click the key which should start the program
